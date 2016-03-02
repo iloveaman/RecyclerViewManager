@@ -6,11 +6,9 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
-import in.srain.cube.views.ptr.PtrClassicDefaultHeader;
 import in.srain.cube.views.ptr.PtrDefaultHandler;
 import in.srain.cube.views.ptr.PtrFrameLayout;
 import in.srain.cube.views.ptr.PtrHandler;
-import in.srain.cube.views.ptr.PtrUIHandler;
 import space.sye.z.library.listener.LoadMoreRecyclerListener;
 import space.sye.z.library.listener.OnBothRefreshListener;
 import space.sye.z.library.listener.OnLoadMoreListener;
@@ -67,6 +65,8 @@ public class RefreshRecyclerView extends PtrFrameLayout {
 
         mHeaderView = new RefreshHeader(mContext);
         setHeaderView(mHeaderView);
+
+
         addPtrUIHandler(mHeaderView);
     }
 

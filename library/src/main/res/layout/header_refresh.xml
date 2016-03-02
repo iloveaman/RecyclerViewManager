@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <RelativeLayout
         android:layout_width="fill_parent"
@@ -9,7 +9,7 @@
 
         <LinearLayout
             android:id="@+id/ptr_classic_header_rotate_view_header_text"
-            android:layout_width="150dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:gravity="center"
@@ -19,9 +19,10 @@
                 android:id="@+id/ptr_classic_header_rotate_view_header_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#4D4D4D"
+                android:gravity="left"
                 android:textAppearance="?android:attr/textAppearance"
-                android:textStyle="bold"/>
+                android:textColor="#4D4D4D"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/ptr_classic_header_rotate_view_header_last_update"
@@ -30,7 +31,7 @@
                 android:layout_marginTop="2dp"
                 android:textColor="#999999"
                 android:textSize="10sp"
-                android:visibility="gone"/>
+                android:visibility="gone" />
         </LinearLayout>
 
         <FrameLayout
@@ -42,16 +43,16 @@
 
             <ImageView
                 android:id="@+id/ptr_classic_header_rotate_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:src="@mipmap/default_ptr_flip" />
 
             <ProgressBar
                 android:id="@+id/ptr_classic_header_rotate_view_progressbar"
-                style="@android:style/Widget.ProgressBar.Small"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@android:style/Widget.Holo.Light.ProgressBar.Large.Inverse"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_gravity="center" />
         </FrameLayout>
     </RelativeLayout>
