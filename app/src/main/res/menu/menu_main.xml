@@ -17,4 +17,9 @@
         android:orderInCategory="100"
         android:title="Staggered"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/action_swip"
+        android:orderInCategory="100"
+        android:title="Swip"
+        app:showAsAction="never" />
 </menu>

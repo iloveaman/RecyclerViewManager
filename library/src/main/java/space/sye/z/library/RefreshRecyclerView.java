@@ -70,43 +70,43 @@ public class RefreshRecyclerView extends PtrFrameLayout {
         addPtrUIHandler(mHeaderView);
     }
 
-    public void setAdapter(RecyclerView.Adapter adapter){
-        if (null == adapter){
+    public void setAdapter(RecyclerView.Adapter adapter) {
+        if (null == adapter) {
             throw new NullPointerException("adapter cannot be null");
         }
         mRecyclerView.setAdapter(adapter);
     }
 
-    public void setLayoutManager(RecyclerView.LayoutManager layoutManager){
+    public void setLayoutManager(RecyclerView.LayoutManager layoutManager) {
         mRecyclerView.setLayoutManager(layoutManager);
     }
 
-    public void setItemAnimator(RecyclerView.ItemAnimator itemAnimator){
-        if (null == itemAnimator){
+    public void setItemAnimator(RecyclerView.ItemAnimator itemAnimator) {
+        if (null == itemAnimator) {
             return;
         }
         mRecyclerView.setItemAnimator(itemAnimator);
     }
 
-    public void setMode(RecyclerMode mode){
+    public void setMode(RecyclerMode mode) {
         this.mode = mode;
-        if (RecyclerMode.NONE == mode || RecyclerMode.BOTTOM == mode){
+        if (RecyclerMode.NONE == mode || RecyclerMode.BOTTOM == mode) {
 
             setEnabled(false);
         } else {
             setEnabled(true);
         }
 
-        if(null != mOnScrollListener){
+        if (null != mOnScrollListener) {
             mOnScrollListener.setMode(mode);
         }
     }
 
-    public void addOnScrollListener(RecyclerView.OnScrollListener listener){
-        if (null == listener){
+    public void addOnScrollListener(RecyclerView.OnScrollListener listener) {
+        if (null == listener) {
             return;
         }
-        if (listener instanceof LoadMoreRecyclerListener){
+        if (listener instanceof LoadMoreRecyclerListener) {
             mOnScrollListener = (LoadMoreRecyclerListener) listener;
             mRecyclerView.addOnScrollListener(mOnScrollListener);
         } else {
@@ -114,23 +114,23 @@ public class RefreshRecyclerView extends PtrFrameLayout {
         }
     }
 
-    public RecyclerView.LayoutManager getLayoutManager(){
+    public RecyclerView.LayoutManager getLayoutManager() {
         return mRecyclerView.getLayoutManager();
     }
 
-    public void addItemDecoration(RecyclerView.ItemDecoration decor){
-        if (null == decor){
+    public void addItemDecoration(RecyclerView.ItemDecoration decor) {
+        if (null == decor) {
             return;
         }
         mRecyclerView.addItemDecoration(decor);
     }
 
-    public void setOnBothRefreshListener(final OnBothRefreshListener listener){
-        if (RecyclerMode.NONE == mode || null == listener){
+    public void setOnBothRefreshListener(final OnBothRefreshListener listener) {
+        if (RecyclerMode.NONE == mode || null == listener) {
             return;
         }
 
-        if (RecyclerMode.BOTH == mode || RecyclerMode.TOP == mode){
+        if (RecyclerMode.BOTH == mode || RecyclerMode.TOP == mode) {
             //当前允许下拉刷新
 
             setPtrHandler(new PtrHandler() {
@@ -146,19 +146,19 @@ public class RefreshRecyclerView extends PtrFrameLayout {
             });
         }
 
-        if (RecyclerMode.BOTH == mode || RecyclerMode.BOTTOM == mode){
-            if (null != mOnScrollListener){
+        if (RecyclerMode.BOTH == mode || RecyclerMode.BOTTOM == mode) {
+            if (null != mOnScrollListener) {
                 mOnScrollListener.setOnBothRefreshListener(listener);
             }
         }
     }
 
-    public void setOnPullDownListener(final OnPullDownListener listener){
-        if (RecyclerMode.NONE == mode || null == listener){
+    public void setOnPullDownListener(final OnPullDownListener listener) {
+        if (RecyclerMode.NONE == mode || null == listener) {
             return;
         }
 
-        if (RecyclerMode.BOTH == mode || RecyclerMode.TOP == mode){
+        if (RecyclerMode.BOTH == mode || RecyclerMode.TOP == mode) {
             //当前允许下拉刷新
             setPtrHandler(new PtrHandler() {
 
@@ -175,28 +175,28 @@ public class RefreshRecyclerView extends PtrFrameLayout {
         }
     }
 
-    public void setOnLoadMoreListener(final OnLoadMoreListener listener){
-        if (RecyclerMode.NONE == mode || null == listener){
+    public void setOnLoadMoreListener(final OnLoadMoreListener listener) {
+        if (RecyclerMode.NONE == mode || null == listener) {
             return;
         }
 
-        if (RecyclerMode.BOTH == mode || RecyclerMode.BOTTOM == mode){
-            if (null != mOnScrollListener){
+        if (RecyclerMode.BOTH == mode || RecyclerMode.BOTTOM == mode) {
+            if (null != mOnScrollListener) {
                 mOnScrollListener.setOnLoadMoreListener(listener);
             }
         }
     }
 
-    public RecyclerView real(){
+    public RecyclerView real() {
         return mRecyclerView;
     }
 
-    public void onRefreshCompleted(){
-        if (RecyclerMode.BOTH == mode || RecyclerMode.TOP == mode){
+    public void onRefreshCompleted() {
+        if (RecyclerMode.BOTH == mode || RecyclerMode.TOP == mode) {
             refreshComplete();
         }
-        if (RecyclerMode.BOTH == mode || RecyclerMode.BOTTOM == mode){
-            if (null != mOnScrollListener){
+        if (RecyclerMode.BOTH == mode || RecyclerMode.BOTTOM == mode) {
+            if (null != mOnScrollListener) {
                 mOnScrollListener.onRefreshComplete();
             }
         }
@@ -206,7 +206,7 @@ public class RefreshRecyclerView extends PtrFrameLayout {
     @Override
     public boolean dispatchTouchEvent(MotionEvent e) {
         if (!isEnabled()) {
-            switch (e.getAction()){
+            switch (e.getAction()) {
                 case MotionEvent.ACTION_DOWN:
                     mDownY = e.getY();
                     break;
@@ -215,8 +215,7 @@ public class RefreshRecyclerView extends PtrFrameLayout {
                     if ((currentY - mDownY) > 0) {
                         //手指向下
                         mOnScrollListener.isLoadingMoreEnabled = false;
-                    }
-                    else {
+                    } else {
                         //手指向上
                         mOnScrollListener.isLoadingMoreEnabled = true;
                     }

@@ -1,5 +1,6 @@
 package space.sye.z.recyclerviewmanager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -10,22 +11,20 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import space.sye.z.library.RefreshRecyclerView;
 import space.sye.z.library.adapter.RefreshRecyclerViewAdapter;
 import space.sye.z.library.listener.OnBothRefreshListener;
-import space.sye.z.library.listener.OnLoadMoreListener;
-import space.sye.z.library.listener.OnPullDownListener;
 import space.sye.z.library.manager.RecyclerMode;
 import space.sye.z.library.manager.RecyclerViewManager;
-import space.sye.z.library.RefreshRecyclerView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         mDatas = new ArrayList<>();
-        for (int i = 0; i < counts; i++){
+        for (int i = 0; i < counts; i++) {
             mDatas.add("Item " + i);
         }
 
@@ -119,15 +118,15 @@ public class MainActivity extends AppCompatActivity {
                 .into(recyclerView, this);
     }
 
-    private Handler mHandler = new Handler(){
+    private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            switch (msg.what){
+            switch (msg.what) {
                 case PULL_DOWN:
                     mDatas.add(0, "new Item");
                     break;
                 case LOAD_MORE:
-                    for (int i = 0; i < 10; i++){
+                    for (int i = 0; i < 10; i++) {
                         mDatas.add("item" + (counts + i));
                     }
                     counts += 10;
@@ -138,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    private class MyViewHolder extends RecyclerView.ViewHolder{
+    private class MyViewHolder extends RecyclerView.ViewHolder {
 
         public TextView tv_item;
 
@@ -149,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
+    private class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
         @Override
         public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -185,18 +184,21 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-       switch (id){
-           case R.id.action_linear:
-               RecyclerViewManager.setLayoutManager(new LinearLayoutManager(this));
-               break;
-           case R.id.action_grid:
-               RecyclerViewManager.setLayoutManager(new GridLayoutManager(this, 3));
-               break;
-           case R.id.action_staggered:
-               RecyclerViewManager.setLayoutManager(new StaggeredGridLayoutManager(
-                       2, StaggeredGridLayoutManager.VERTICAL));
-               break;
-       }
+        switch (id) {
+            case R.id.action_linear:
+                RecyclerViewManager.setLayoutManager(new LinearLayoutManager(this));
+                break;
+            case R.id.action_grid:
+                RecyclerViewManager.setLayoutManager(new GridLayoutManager(this, 3));
+                break;
+            case R.id.action_staggered:
+                RecyclerViewManager.setLayoutManager(new StaggeredGridLayoutManager(
+                        2, StaggeredGridLayoutManager.VERTICAL));
+                break;
+            case R.id.action_swip:
+                startActivity(new Intent(this, SwipeActivity.class));
+                break;
+        }
 
         return super.onOptionsItemSelected(item);
     }
