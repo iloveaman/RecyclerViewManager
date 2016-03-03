@@ -19,13 +19,12 @@
             </intent-filter>
         </activity>
         <activity
-<<<<<<< HEAD
             android:name=".PinnedActivity"
             android:label="@string/title_activity_pinned"
-=======
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".SwipeActivity"
             android:label="@string/title_activity_swipe"
->>>>>>> 6ffe66c86403aab7c832b5446f91a085268fa475
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

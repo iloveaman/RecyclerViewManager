@@ -18,14 +18,13 @@
         android:title="Staggered"
         app:showAsAction="never" />
     <item
-<<<<<<< HEAD
+
         android:id="@+id/action_pinned"
         android:orderInCategory="100"
-        android:title="pinned"
-=======
+        android:title="Pinned" />
+    <item
         android:id="@+id/action_swip"
         android:orderInCategory="100"
-        android:title="Swip"
->>>>>>> 6ffe66c86403aab7c832b5446f91a085268fa475
+        android:title="Swipe"
         app:showAsAction="never" />
 </menu>

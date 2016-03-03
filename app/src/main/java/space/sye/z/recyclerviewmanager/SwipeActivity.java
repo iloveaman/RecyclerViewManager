@@ -1,6 +1,8 @@
 package space.sye.z.recyclerviewmanager;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +17,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import space.sye.z.library.RefreshRecyclerView;
+import space.sye.z.library.listener.OnBothRefreshListener;
 import space.sye.z.library.manager.RecyclerMode;
 import space.sye.z.library.manager.RecyclerViewManager;
 import space.sye.z.recyclerviewmanager.adapter.RecyclerViewAdapter;
@@ -59,7 +62,28 @@ public class SwipeActivity extends AppCompatActivity {
         //recyclerView.setAdapter(mAdapter);
         RecyclerViewManager.with(mAdapter, new LinearLayoutManager(this))
                 .setMode(RecyclerMode.BOTH)
+                .setOnBothRefreshListener(new OnBothRefreshListener() {
+                    @Override
+                    public void onPullDown() {
+                        //模拟网络请求
+                        Message msg = new Message();
+                        mHandler.sendMessageDelayed(msg, 2000);
+                    }
+
+                    @Override
+                    public void onLoadMore() {
+                        Message msg = new Message();
+                        mHandler.sendMessageDelayed(msg, 2000);
+                    }
+                })
                 .into(recyclerView, this);
     }
 
+    private Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            recyclerView.onRefreshCompleted();
+            mAdapter.notifyDataSetChanged();
+        }
+    };
 }

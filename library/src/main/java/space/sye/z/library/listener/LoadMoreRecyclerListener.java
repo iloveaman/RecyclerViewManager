@@ -5,6 +5,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 
@@ -57,6 +58,7 @@ public class LoadMoreRecyclerListener extends RecyclerView.OnScrollListener {
         super.onScrolled(recyclerView, dx, dy);
 
         hasCompleted = false;
+        isLoadingMoreEnabled = dy > 0 ? true : false;
 
         RecyclerView.LayoutManager mLayoutManager = recyclerView.getLayoutManager();
 
