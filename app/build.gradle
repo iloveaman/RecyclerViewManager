@@ -26,5 +26,13 @@ dependencies {
     compile 'com.android.support:design:23.1.1'
     compile project(':library')
 
+<<<<<<< HEAD
 
+=======
+    //compile 'com.github.liangzhitao:SwipeMenuViewHolder:0.2'
+    compile "com.daimajia.swipelayout:library:1.2.0@aar"
+
+    compile 'com.daimajia.androidanimations:library:1.1.2@aar'
+    compile 'com.nineoldandroids:library:2.4.0'
+>>>>>>> 6ffe66c86403aab7c832b5446f91a085268fa475
 }

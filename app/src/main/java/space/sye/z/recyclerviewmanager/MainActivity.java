@@ -203,8 +203,13 @@ public class MainActivity extends AppCompatActivity {
                 RecyclerViewManager.setLayoutManager(new StaggeredGridLayoutManager(
                         2, StaggeredGridLayoutManager.VERTICAL));
                 break;
+<<<<<<< HEAD
             case R.id.action_pinned:
                 startActivity(new Intent(this, PinnedActivity.class));
+=======
+            case R.id.action_swip:
+                startActivity(new Intent(this, SwipeActivity.class));
+>>>>>>> 6ffe66c86403aab7c832b5446f91a085268fa475
                 break;
         }
 

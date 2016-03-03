@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">RecyclerViewManager</string>
     <string name="action_settings">Settings</string>
+<<<<<<< HEAD
     <string name="title_activity_pinned">PinnedActivity</string>
+=======
+    <string name="title_activity_swipe">SwipeActivity</string>
+>>>>>>> 6ffe66c86403aab7c832b5446f91a085268fa475
 </resources>
