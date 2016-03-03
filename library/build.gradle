@@ -24,4 +24,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:recyclerview-v7:23.1.0'
     compile 'in.srain.cube:ultra-ptr:1.0.11'
+
+    compile 'com.github.wangjiegulu:AndroidBucket:1.0.4'
 }

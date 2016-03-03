@@ -17,4 +17,9 @@
         android:orderInCategory="100"
         android:title="Staggered"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/action_pinned"
+        android:orderInCategory="100"
+        android:title="pinned"
+        app:showAsAction="never" />
 </menu>
