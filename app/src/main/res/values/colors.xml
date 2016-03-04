@@ -11,4 +11,10 @@
     <color name="dark_gray">#4C535B</color>
     <color name="dark_gray_press">#ff7e8a97</color>
 
+    <color name="background_tab_pressed">#6633B5E5</color>
+
+    <color name="c_0">#7B68EE</color>
+    <color name="c_1">#FF69B4</color>
+    <color name="c_2">#6495ED</color>
+    <color name="c_3">#FFBF00</color>
 </resources>

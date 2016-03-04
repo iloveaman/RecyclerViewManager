@@ -1,4 +1,4 @@
-package space.sye.z.recyclerviewmanager.adapter;
+package space.sye.z.recyclerviewmanager.androidswipelayout.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

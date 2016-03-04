@@ -21,11 +21,14 @@
         <activity
             android:name=".PinnedActivity"
             android:label="@string/title_activity_pinned"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".SwipeActivity"
             android:label="@string/title_activity_swipe"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".PageHeaderActivity"
+            android:label="@string/title_activity_page_header"></activity>
     </application>
 
 </manifest>

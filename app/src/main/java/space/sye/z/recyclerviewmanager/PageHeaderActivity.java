@@ -1,0 +1,66 @@
+package space.sye.z.recyclerviewmanager;
+
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+
+import space.sye.z.recyclerviewmanager.fragment.PagerHeaderFragment;
+import space.sye.z.recyclerviewmanager.fragment.ParallaxImageHeaderFragment;
+
+public class PageHeaderActivity extends AppCompatActivity {
+
+    private View scrollView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_page_header);
+        scrollView = findViewById(R.id.scrollView);
+    }
+
+    public void showParallaxFragment(View view) {
+        showFragment(ParallaxImageHeaderFragment.class);
+    }
+
+    public void showPagerHeaderFragment(View view) {
+        showFragment(PagerHeaderFragment.class);
+    }
+
+    public <T extends Fragment> void showFragment(Class<T> clzz) {
+        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.fragmentContainer);
+        try {
+            if (fragment == null) {
+                getSupportFragmentManager().beginTransaction().add(R.id.fragmentContainer, clzz.newInstance(), clzz.getSimpleName()).commit();
+            } else {
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, clzz.newInstance(), clzz.getSimpleName()).commit();
+            }
+            getSupportActionBar().setTitle(clzz.getSimpleName());
+            scrollView.setVisibility(View.GONE);
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (!removeFragment()) {
+            super.onBackPressed();
+        } else {
+            scrollView.setVisibility(View.VISIBLE);
+            getSupportActionBar().setTitle(R.string.app_name);
+        }
+    }
+
+    public boolean removeFragment() {
+        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.fragmentContainer);
+        if (fragment != null) {
+            getSupportFragmentManager().beginTransaction().remove(fragment).commit();
+            return true;
+        } else {
+            return false;
+        }
+    }
+}

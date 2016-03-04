@@ -20,7 +20,7 @@ import space.sye.z.library.RefreshRecyclerView;
 import space.sye.z.library.listener.OnBothRefreshListener;
 import space.sye.z.library.manager.RecyclerMode;
 import space.sye.z.library.manager.RecyclerViewManager;
-import space.sye.z.recyclerviewmanager.adapter.RecyclerViewAdapter;
+import space.sye.z.recyclerviewmanager.androidswipelayout.adapter.RecyclerViewAdapter;
 import space.sye.z.recyclerviewmanager.util.DividerItemDecoration;
 
 public class SwipeActivity extends AppCompatActivity {

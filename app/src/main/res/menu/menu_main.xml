@@ -23,8 +23,13 @@
         android:orderInCategory="100"
         android:title="Pinned" />
     <item
-        android:id="@+id/action_swip"
+        android:id="@+id/action_swipe"
         android:orderInCategory="100"
         android:title="Swipe"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_pageheader"
+        android:orderInCategory="100"
+        android:title="Pageheader"
         app:showAsAction="never" />
 </menu>

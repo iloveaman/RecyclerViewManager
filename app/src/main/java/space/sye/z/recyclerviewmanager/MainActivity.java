@@ -207,8 +207,12 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_pinned:
                 startActivity(new Intent(this, PinnedActivity.class));
 
-            case R.id.action_swip:
+            case R.id.action_swipe:
                 startActivity(new Intent(this, SwipeActivity.class));
+
+                break;
+            case R.id.action_pageheader:
+                startActivity(new Intent(this, PageHeaderActivity.class));
 
                 break;
         }

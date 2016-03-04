@@ -22,6 +22,12 @@ import space.sye.z.library.widget.RefreshHeader;
 public class RefreshRecyclerView extends PtrFrameLayout {
 
     private Context mContext;
+
+    public RecyclerView getRecyclerView() {
+        return mRecyclerView;
+    }
+
+
     private RecyclerView mRecyclerView;
     private PtrFrameLayout.LayoutParams params;
     private LoadMoreRecyclerListener mOnScrollListener;
