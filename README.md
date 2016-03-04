@@ -82,3 +82,8 @@ Usage in Activity or some others:
  Use recyclerView.real() to get the real RecyclerView if you want to use methods of it.
     
 Simple Introduction for RecyclerViewManager(Chinese): http://z.sye.space/2015/11/23/RecyclerViewManager/
+# 添加对com.daimajia.swipelayout 的支持
+![RecyclerViewManagerDemo.gif](http://7xn4z4.com1.z0.glb.clouddn.com/RecyclerViewManager.gif)
+
+# 添加对scrollablelayout 的支持
+![RecyclerViewManagerDemo.gif](http://7xn4z4.com1.z0.glb.clouddn.com/RecyclerViewManager.gif)
